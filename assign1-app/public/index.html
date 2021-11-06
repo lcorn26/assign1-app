@@ -8,27 +8,15 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>React App</title>
+  <title>Play Library</title>
 </head>
 
 <body>
@@ -37,36 +25,55 @@
 
   <script type="text/babel">
 
-    const HomeView = () => {
-      return (
-        <article id="homeView">
-          <h1> Browse Playes: </h1>
-          <p>
-            <strong>Title: </strong>
-            <input type="text" className="input" />
-          </p>
-          <button id="ShowMatchingPlaysButton" onClick="" >Show Matching Plays</button>
-          <button id="ShowAllPlaysButton" onClick="" >Show All Plays</button>
-        </article>
-      )
+    const Main = () => {
+      const [showHomeView, setHomeView] = React.useState(true);
+
+      if (showHomeView) {
+        return (
+          <article id="homeView">
+            <h1> Browse Playes: </h1>
+            <p>
+              <strong>Title: </strong>
+              <input type="text" className="input" />
+            </p>
+            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false) }} >Show Matching Plays</button>
+            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false) }} >Show All Plays</button>
+          </article>
+        )
+      }
+      else {
+        return (
+          //<Header />
+          <article >
+            <div id="header">
+              <img src="logo192.png" alt="Home" />
+              <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
+            </div>
+
+            <div id=""> </div>
+            
+          </article>
+          
+        )
+      }
     };
 
-    const Header = () => {
-      return (
-        <article>
-          <div>
-            <h1>Logo</h1>
-          </div>
-          <button id="AboutButton" onClick="" >About</button>
-        </article>
-      );
-    }
+    //const Header = () => {
+    //  return (
+    //    <article id="header">
+    //      <div id="Logo">
+    //        <img src="logo192.png" alt="Home" />
+    //      </div>
+    //      <button id="AboutButton" onClick={ () => {setHomeView(true)} } >About</button>
+    //    </article>
+    //  );
+    // }
 
 
-
-    ReactDOM.render(<Header />, document.getElementById('root'));
+    ReactDOM.render(<Main />, document.getElementById('root'));
   </script>
 
 </body>
+<link rel="stylesheet" href="style.css" />
 
 </html>
