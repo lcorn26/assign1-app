@@ -24,6 +24,7 @@
   <div id="root"></div>
 
   <script type="text/babel">
+    
 
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
@@ -43,7 +44,6 @@
       }
       else {
         return (
-          //<Header />
           <article >
             <div id="header">
               <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
@@ -52,26 +52,48 @@
 
             <div id="favorits">
             </div>
-            
+
+            <PlayDetailsView />
           </article>
-          
+
         )
       }
     };
 
-    //const Header = () => {
-    //  return (
-    //    <article id="header">
-    //      <div id="Logo">
-    //        <img src="logo192.png" alt="Home" />
-    //      </div>
-    //      <button id="AboutButton" onClick={ () => {setHomeView(true)} } >About</button>
-    //    </article>
-    //  );
-    // }
+    const AboutView = () => {
+      return (
+        <div id="aboutView">
+          <h1>About Us:</h1>
+          <p>Something about Us</p>
+          <button id="AboutExitBtn" onClick={() => { }} >Exit</button>
+        </div>
+      )
+    }
 
+    const PlayDetailsView = () => {
+      return (
+        <div id="PlayDetails" >
+          <div id="leftDetails">
+            <h1>
+              Title goes here
+            </h1>
+            <p> Synopsis Goes here </p>
+          </div>
+          <div id="PlayDetailsOptions">
+            <button id="DetailsBtn" onClick="" >Details</button>
+            <button id="CharactersBrn" onClick="">Characters</button>
+            <button id="TextBtn" onClick="" >Text</button>
+          </div>
+          <div>
+            <button id="PlayCloseBtn" onClick="" >Close</button>
+            <button id="PlayLikeBtn" onClick="">Like</button>
+          </div>
+        </div>
+      )
+    }
 
     ReactDOM.render(<Main />, document.getElementById('root'));
+
   </script>
 
 </body>
