@@ -31,13 +31,13 @@
       if (showHomeView) {
         return (
           <article id="homeView">
-            <h1> Browse Playes: </h1>
+            <h1> Browse Plays: </h1>
             <p>
               <strong>Title: </strong>
               <input type="text" className="input" />
             </p>
-            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false) }} >Show Matching Plays</button>
-            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false) }} >Show All Plays</button>
+            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false), apicall() }} >Show Matching Plays</button>
+            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false)}} >Show All Plays</button>
           </article>
         )
       }
@@ -69,9 +69,22 @@
     //  );
     // }
 
+    const apicall = () => {
+        const array = [];
+
+fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+  .then(response => response.json())
+  .then(data => array.push(data) );
+  console.log(array);
+}
+
+
 
     ReactDOM.render(<Main />, document.getElementById('root'));
   </script>
+
+<script type = "text/javascript" src="index.js"></script> 
+
 
 </body>
 <link rel="stylesheet" href="style.css" />
