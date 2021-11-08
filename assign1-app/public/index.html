@@ -25,14 +25,14 @@
 
   <script type="text/babel">
 
-
-  // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
+// 
+ // {plays.map( p =>  <p key={p.id} id=key> {p.id} </p> )} 
 
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
       const [plays, setPlays] = React.useState([]);
       const [isLoading, setisLoading] = React.useState(true);
-      
+      const listItems = plays.map(( p ) =>  <p key={p.id}> {p.id} </p> )
       
 
 
@@ -42,11 +42,8 @@
           .then(data => setPlays(data))
           .then(setisLoading(false));
       }, []);
-    plays.forEach(element => {
-      let id = plays.id
-    localStorage.setItem(id, element )
 
-    });
+
     
 
       if (showHomeView) {
