@@ -108,8 +108,8 @@
             <div id="DetailsInfo">
               <p>{props.play.desc}</p>
             </div>
-            {<PlayCharAndText play= {props.play}/>}
-            
+            {<PlayCharAndText play={props.play} />}
+
           </div>
           <p> </p>
         </div>
@@ -132,10 +132,10 @@
 
 
 
-        // if (document.queryselector(.input).contains(array.title))
-        //{
+    // if (document.queryselector(.input).contains(array.title))
+    //{
 
-        //}
+    //}
 
     //const form = () => {
     //  return (
@@ -153,20 +153,28 @@
 
 
     const PlayCharAndText = (props) => {
-      
-      const [play2, setPlay2] = React.useState([]);
+
+      const [play2, setPlay2] = React.useState(new Map());
 
       React.useEffect(() => {
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=' + props.play.id)
           .then(response => response.json())
           .then(data => setPlay2(data))
       }, []);
+      //const update = (play2.persona) => {
 
+      //}
       //const persona = play2.persona;
+      console.log(play2.persona)
+      let i=0;
+      let loopdats = [];
+      for (i = 0; i < play2.persona.length; i++) {
+        loopData += `<li>${data[i].name}</li>`
+      }
+      return (
 
-      return(
         <div>
-        {play2.title}
+
         </div>
       )
 
