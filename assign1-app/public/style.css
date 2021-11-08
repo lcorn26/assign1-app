@@ -3,8 +3,7 @@
     margin: auto;
 }
 #header {
-    width: 100%;
-    position: fixed;        
+    width: 100%;       
     background: #333;
     padding: 10px 0;
     color: #fff;
@@ -12,4 +11,7 @@
 }
 #AboutButton {
     box-align: right;
+}
+#PlayDetails {
+
 }

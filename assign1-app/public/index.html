@@ -24,8 +24,22 @@
   <div id="root"></div>
 
   <script type="text/babel">
+
+
+  // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
+
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
+      
+      const [plays, setPlays] = React.useState([]);
+      const [isLoading, setisLoading] = React.useState(true);
+
+      React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+          .then(response => response.json())
+          .then(data => setPlays(data))
+          .then(setisLoading(false));
+      }, []);
 
       if (showHomeView) {
         return (
@@ -42,14 +56,22 @@
       }
       else {
         return (
-          //<Header />
           <article >
             <div id="header">
-              <img src="logo192.png" alt="Home" />
+              <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
               <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
+            
             </div>
 
+
+            <div id="favorits">
+                
+            </div>
+
+            <PlayDetailsView play = {plays[0]} />
+
             <div id="">{< ApiCall /> }</div>
+
 
           </article>
 
@@ -57,6 +79,42 @@
       }
     };
 
+
+    const AboutView = () => {
+      return (
+        <div id="aboutView">
+          <h1>About Us:</h1>
+          <p>Something about Us</p>
+          <button id="AboutExitBtn" onClick={() => { }} >Exit</button>
+        </div>
+      )
+    }
+
+    const PlayDetailsView = (props) => {
+      return (
+        <div id="PlayDetails" >
+          <div id="leftDetails">
+            <h1>
+              {props.play.title}
+            </h1>
+            <p> Synopsis Goes here </p>
+          </div>
+          <div id="PlayDetailsOptions">
+            <button id="DetailsBtn" onClick="" >Details</button>
+            <button id="CharactersBrn" onClick="">Characters</button>
+            <button id="TextBtn" onClick="" >Text</button>
+          </div>
+          <div>
+            <button id="PlayCloseBtn" onClick="" >Close</button>
+            <button id="PlayLikeBtn" onClick="">Like</button>
+          </div>
+          <div id="infoBox">
+
+          </div>
+          <p> </p>
+        </div>
+      )
+    }
     //const Header = () => {
     //  return (
     //    <article id="header">
@@ -68,20 +126,6 @@
     //  );
     // }
 
-    const ApiCall = () => {
-      const [plays, setPlays] = React.useState([]);
-      const [isLoading, setisLoading] = React.useState(true);
-      React.useEffect(() => {
-        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
-          .then(response => response.json())
-          .then(data => setPlays(data))
-          .then(setisLoading(false));
-      }, []);
-      return (
-        <div>
-          {plays.map(d => <div>{d.id}</div>)}
-       </div>
-
 
 
 
@@ -92,20 +136,6 @@
         //{
 
         //}
-
-
-      )
-    }
-
-
-
-    const test = () => {
-      const matchingPlays = array.map(function (arr, index, l) {
-        return arr.title;
-      });
-      console.log(array)
-      console.log(matchingPlays)
-    }
 
     //const form = () => {
     //  return (
@@ -122,8 +152,8 @@
     // }
 
 
-
     ReactDOM.render(<Main />, document.getElementById('root'));
+
   </script>
 
   <script type="text/javascript" src="index.js"></script>
