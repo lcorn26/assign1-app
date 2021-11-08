@@ -24,10 +24,36 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    
+
+
+    const Apicall = (props) => {
+      const [plays, setPlays] = React.useState([]);
+      //const url = ""
+      //const plays = [];
+      fetch("https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php")
+        .then(response => response.json())
+        .then(data => setPlays(data));
+      //console.log(plays);
+      return (
+        <div>
+          {
+            plays.map(
+              (play) => {
+                <p>{play.id} </p>
+              }
+            )
+          }
+        </div>
+      )
+
+
+    }
+
 
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
+
+
 
       if (showHomeView) {
         return (
@@ -70,7 +96,7 @@
       )
     }
 
-    const PlayDetailsView = () => {
+    const PlayDetailsView = (props) => {
       return (
         <div id="PlayDetails" >
           <div id="leftDetails">
@@ -88,11 +114,15 @@
             <button id="PlayCloseBtn" onClick="" >Close</button>
             <button id="PlayLikeBtn" onClick="">Like</button>
           </div>
+          <div id="infoBox">
+
+          </div>
+          <p> </p>
         </div>
       )
     }
 
-    ReactDOM.render(<Main />, document.getElementById('root'));
+    ReactDOM.render(<Apicall />, document.getElementById('root'));
 
   </script>
 
