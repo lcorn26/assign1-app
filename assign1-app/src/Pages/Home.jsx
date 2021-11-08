@@ -2,30 +2,33 @@ import React,  { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 
 export const Home = () => {
     const navigate = useNavigate();
     const [isLaoded, setIsloaded] = useState(false);
-    const [movieList, setMovieList] = useState([]);
-    useEffect(() => {
-        axios.get('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
-            .then(function (response) {
-                localStorage.setItem('movieList', JSON.stringify(response.data));
-                setMovieList(response.data);
-            })
-        setIsloaded(true);
-    }, [])
+    const [playsList, setPlaysList] = useState([]);
+
+    React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+          .then(function (response) {
+            localStorage.setItem('playsList', JSON.stringify(response.data));
+            setPlaysList(response.data);
+        })
+          setIsloaded(true);
+      }, []);
+
+
+
     const onFinish = (value) => {
         let FilteredData = [];
         if(value.title){
-            let titleData = movieList.filter(movie => movie.title.includes(value.title));
+            let titleData = playsList.filter(plays => plays.title.includes(value.title));
             console.log(titleData);
             FilteredData.push(...titleData);
         }
-        localStorage.setItem('movieList', JSON.stringify(FilteredData));
-        navigate("/movie-list");
+        localStorage.setItem('playsList', JSON.stringify(FilteredData));
+        navigate("/plays-list");
     }
     return (
         <div>
@@ -50,7 +53,7 @@ export const Home = () => {
                                     </Button>
                                 </Col>
                                 <Col span={8} offset={8}>
-                                    <Link to={"/movie-list"}><Button type="primary" htmlType="button" className="login-form-button">
+                                    <Link to={"/plays-list"}><Button type="primary" htmlType="button" className="login-form-button">
                                         Show All Plays
                                     </Button></Link>
                                 </Col>
