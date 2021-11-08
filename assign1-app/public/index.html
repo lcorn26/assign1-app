@@ -55,6 +55,7 @@
       else {
         return (
           <article >
+            
             <div id="header">
               <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
               <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
@@ -66,6 +67,7 @@
             </div>
 
             <PlayDetailsView play = {plays[0]} />
+
           </article>
 
         )
@@ -89,7 +91,7 @@
             <h1>
               {props.play.title}
             </h1>
-            <p> Synopsis Goes here </p>
+            <p> {props.play.synopsis} </p>
           </div>
           <div id="PlayDetailsOptions">
             <button id="DetailsBtn" onClick="" >Details</button>
@@ -100,8 +102,9 @@
             <button id="PlayCloseBtn" onClick="" >Close</button>
             <button id="PlayLikeBtn" onClick="">Like</button>
           </div>
-          <div id="infoBox">
-
+        
+          <div id="DetailsInfo">
+            {props.play.desc}
           </div>
           <p> </p>
         </div>
