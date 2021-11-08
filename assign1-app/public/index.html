@@ -24,7 +24,6 @@
   <div id="root"></div>
 
   <script type="text/babel">
-
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
 
@@ -36,8 +35,8 @@
               <strong>Title: </strong>
               <input type="text" className="input" />
             </p>
-            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false), apicall() }} >Show Matching Plays</button>
-            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false)}} >Show All Plays</button>
+            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false) }} >Show Matching Plays</button>
+            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false) }} >Show All Plays</button>
           </article>
         )
       }
@@ -50,10 +49,10 @@
               <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
             </div>
 
-            <div id=""> </div>
-            
+            <div id="">{< ApiCall /> }</div>
+
           </article>
-          
+
         )
       }
     };
@@ -68,41 +67,52 @@
     //    </article>
     //  );
     // }
-    
-    const apicall = () => {
-      const array = [];
 
-fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
-  .then(response => response.json())
-  .then(data => array.push(data), );
-
-
-
-
-
-// if (document.queryselector(.input).contains(array.title))
-//{
-
-//}
-  
-
-}
+    const ApiCall = () => {
+      const [plays, setPlays] = React.useState([]);
+      const [isLoading, setisLoading] = React.useState(true);
+      React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+          .then(response => response.json())
+          .then(data => setPlays(data))
+          .then(setisLoading(false));
+      }, []);
+      return (
+        <div>
+          {plays.map(d => <div>{d.id}</div>)}
+       </div>
 
 
-const test = () => {
-  const matchingPlays = array.map(function(arr, index, l){
-    return arr.title;
-  });
-  console.log(array)
-  console.log(matchingPlays)
-}
 
-//const form = () => {
+
+
+
+
+        // if (document.queryselector(.input).contains(array.title))
+        //{
+
+        //}
+
+
+      )
+    }
+
+
+
+    const test = () => {
+      const matchingPlays = array.map(function (arr, index, l) {
+        return arr.title;
+      });
+      console.log(array)
+      console.log(matchingPlays)
+    }
+
+    //const form = () => {
     //  return (
     //    <article id="playfilters">
     //      <input type="text" className="title" />
     //      <radio> </radio>
-   //       <radio> </radio>
+    //       <radio> </radio>
     //      <input type="text" className="yearb" />
     //     <input type="text" className="yeara" />
 
@@ -116,7 +126,7 @@ const test = () => {
     ReactDOM.render(<Main />, document.getElementById('root'));
   </script>
 
-<script type = "text/javascript" src="index.js"></script> 
+  <script type="text/javascript" src="index.js"></script>
 
 
 </body>
