@@ -25,10 +25,10 @@
 
   <script type="text/babel">
 
-  // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
+    // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
-      
+
       const [plays, setPlays] = React.useState([]);
       const [isLoading, setisLoading] = React.useState(true);
 
@@ -55,18 +55,18 @@
       else {
         return (
           <article >
-            
+
             <div id="header">
               <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
               <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
-            
+
             </div>
 
             <div id="favorits">
-                
+
             </div>
 
-            <PlayDetailsView play = {plays[0]} />
+            <PlayDetailsView play={plays[6]} />
 
           </article>
 
@@ -102,13 +102,37 @@
             <button id="PlayCloseBtn" onClick="" >Close</button>
             <button id="PlayLikeBtn" onClick="">Like</button>
           </div>
-        
-          <div id="DetailsInfo">
-            {props.play.desc}
+          <div id="infobox">
+            <div id="DetailsInfo">
+              <p>{props.play.desc}</p>
+            </div>
+            {<PlayCharAndText play= {props.play}/>}
+            
           </div>
           <p> </p>
         </div>
       )
+    }
+
+    const PlayCharAndText = (props) => {
+      
+      const [play2, setPlay2] = React.useState([]);
+
+      React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=' + props.play.id)
+          .then(response => response.json())
+          .then(data => setPlay2(data))
+      }, []);
+
+      //const persona = play2.persona;
+
+      return(
+        <div>
+        {play2.title}
+        </div>
+      )
+
+
     }
 
     ReactDOM.render(<Main />, document.getElementById('root'));
