@@ -25,7 +25,9 @@
 
   <script type="text/babel">
 
+
   // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
+
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
       
@@ -42,7 +44,7 @@
       if (showHomeView) {
         return (
           <article id="homeView">
-            <h1> Browse Playes: </h1>
+            <h1> Browse Plays: </h1>
             <p>
               <strong>Title: </strong>
               <input type="text" className="input" />
@@ -61,16 +63,22 @@
             
             </div>
 
+
             <div id="favorits">
                 
             </div>
 
             <PlayDetailsView play = {plays[0]} />
+
+            <div id="">{< ApiCall /> }</div>
+
+
           </article>
 
         )
       }
     };
+
 
     const AboutView = () => {
       return (
@@ -107,10 +115,49 @@
         </div>
       )
     }
+    //const Header = () => {
+    //  return (
+    //    <article id="header">
+    //      <div id="Logo">
+    //        <img src="logo192.png" alt="Home" />
+    //      </div>
+    //      <button id="AboutButton" onClick={ () => {setHomeView(true)} } >About</button>
+    //    </article>
+    //  );
+    // }
+
+
+
+
+
+
+
+        // if (document.queryselector(.input).contains(array.title))
+        //{
+
+        //}
+
+    //const form = () => {
+    //  return (
+    //    <article id="playfilters">
+    //      <input type="text" className="title" />
+    //      <radio> </radio>
+    //       <radio> </radio>
+    //      <input type="text" className="yearb" />
+    //     <input type="text" className="yeara" />
+
+    //<input type="text" className="genre" />
+    //    </article>
+    //  );
+    // }
+
 
     ReactDOM.render(<Main />, document.getElementById('root'));
 
   </script>
+
+  <script type="text/javascript" src="index.js"></script>
+
 
 </body>
 <link rel="stylesheet" href="style.css" />
