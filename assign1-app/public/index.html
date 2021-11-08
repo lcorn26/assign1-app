@@ -37,7 +37,7 @@
       React.useEffect(() => {
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
           .then(response => response.json())
-          .then(data => setPlays(data))
+          .then(data => { window.localStorage.setItem( setPlays(data)) })
           .then(setisLoading(false));
       }, []);
 
