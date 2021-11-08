@@ -32,6 +32,7 @@
       const [plays, setPlays] = React.useState([]);
       const [isLoading, setisLoading] = React.useState(true);
 
+
       React.useEffect(() => {
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
           .then(response => response.json())
@@ -39,40 +40,90 @@
           .then(setisLoading(false));
       }, []);
 
-      if (showHomeView) {
-        return (
-          <article id="homeView">
-            <h1> Browse Plays: </h1>
-            <p>
-              <strong>Title: </strong>
-              <input type="text" className="input" />
-            </p>
-            <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false) }} >Show Matching Plays</button>
-            <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false) }} >Show All Plays</button>
-          </article>
-        )
-      }
-      else {
-        return (
-          <article >
+      const SearchBar = ({ data }) => {
+        const [filter, setFilter] = React.useState([]);
+        const [wordEntered, setWordEntered] = React.useState("");
 
-            <div id="header">
-              <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
-              <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
-
-            </div>
+        const handleFilter = (event) => {
+          const search = event
+          setWordEntered(search);
+          
+          const newFilter = data.filter((value) => {
+            return value.title.toLowerCase().includes(search);
+          })
+          if (search === "") {
+            setFilter(plays);
+          } else {
+            setFilter(newFilter);
+          }
+        };
+      
+      
 
 
-            <div id="favorits">
+      return (
+        <div>
+          <h1> Browse Plays: </h1>
+          <p>
+            <strong>Title: </strong>
+            <input type="text" id="filter" onChange={handleFilter}/>
+          </p>
+          <button id="ShowMatchingPlaysButton" onClick={() => { setHomeView(false) }} >Show Matching Plays</button>
+          
 
-            </div>
+          {filter.map((value, key) => {
+            return (
+              <p>{value.id} </p>
+            );
+          })}
+        </div>
+      )}
 
-            <PlayDetailsView play={plays[6]} />
 
-          </article>
+    if (showHomeView) {
+      return (
+        <article id="homeView">
+          <SearchBar data={plays} />
+          <button id="ShowAllPlaysButton" onClick={() => { setHomeView(false) }} >Show All Plays</button>
+        </article>
+      )
+    }
+    else {
 
-        )
-      }
+    
+
+
+
+
+
+
+
+
+
+      return (
+        <article >
+
+          <div id="header">
+            <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
+            <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
+
+          </div>
+
+
+          <div id="favorits">
+
+          </div>
+
+
+
+
+
+
+
+        </article>
+
+      )
+    }
     };
 
 
@@ -108,8 +159,8 @@
             <div id="DetailsInfo">
               <p>{props.play.desc}</p>
             </div>
-            {<PlayCharAndText play= {props.play}/>}
-            
+            {<PlayCharAndText play={props.play} />}
+
           </div>
           <p> </p>
         </div>
@@ -132,10 +183,7 @@
 
 
 
-        // if (document.queryselector(.input).contains(array.title))
-        //{
 
-        //}
 
     //const form = () => {
     //  return (
@@ -153,7 +201,6 @@
 
 
     const PlayCharAndText = (props) => {
-      
       const [play2, setPlay2] = React.useState([]);
 
       React.useEffect(() => {
@@ -161,18 +208,9 @@
           .then(response => response.json())
           .then(data => setPlay2(data))
       }, []);
-
-      //const persona = play2.persona;
-
-      return(
-        <div>
-        {play2.title}
-        </div>
-      )
-
+      return (<div>{play2[0]}</div>)
 
     }
-
     ReactDOM.render(<Main />, document.getElementById('root'));
 
   </script>
