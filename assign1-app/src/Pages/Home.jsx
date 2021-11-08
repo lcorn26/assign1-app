@@ -20,12 +20,12 @@ export const Home = () => {
     const onFinish = (value) => {
         let FilteredData = [];
         if(value.title){
-            let titleData = playsList.filter(movie => movie.title.includes(value.title));
+            let titleData = playsList.filter(play => play.title.includes(value.title));
             console.log(titleData);
             FilteredData.push(...titleData);
         }
         localStorage.setItem('playsList', JSON.stringify(FilteredData));
-        navigate("/movie-list");
+        navigate("/play-list");
     }
     return (
         <div>
@@ -50,7 +50,7 @@ export const Home = () => {
                                     </Button>
                                 </Col>
                                 <Col span={8} offset={8}>
-                                    <Link to={"/movie-list"}><Button type="primary" htmlType="button" className="login-form-button">
+                                    <Link to={"/play-list"}><Button type="primary" htmlType="button" className="login-form-button">
                                         Show All Plays
                                     </Button></Link>
                                 </Col>
