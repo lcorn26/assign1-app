@@ -28,7 +28,7 @@ export const Home = () => {
             FilteredData.push(...titleData);
         }
         localStorage.setItem('playsList', JSON.stringify(FilteredData));
-        navigate("/plays-list");
+        navigate("/play-list");
     }
     return (
         <div>
@@ -53,7 +53,7 @@ export const Home = () => {
                                     </Button>
                                 </Col>
                                 <Col span={8} offset={8}>
-                                    <Link to={"/plays-list"}><Button type="primary" htmlType="button" className="login-form-button">
+                                    <Link to={"/play-list"}><Button type="primary" htmlType="button" className="login-form-button">
                                         Show All Plays
                                     </Button></Link>
                                 </Col>

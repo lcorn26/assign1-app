@@ -5,9 +5,9 @@ import {
 } from "react-router-dom";
 import { Home } from "../Pages/Home";
 import { Empty } from 'antd';
-import { MovieList } from "../Pages/MovieList";
+import { playsList } from "../Pages/playsList";
 import { Favourites } from "../Pages/Favourites";
-import { MovieDetails } from "../Pages/MovieDetails";
+import { PlayDetails } from "../Pages/PlayDetails";
 
 export function Routings() {
     return (
@@ -15,8 +15,8 @@ export function Routings() {
             <Router>
                 <Routes>
                     <Route path='/' element={<Home/>}></Route>
-                    <Route path='/movie-list' element={<MovieList/>}></Route>
-                    <Route path='/movie-details/:id' element={<MovieDetails/>}></Route>
+                    <Route path='/play-list' element={<playsList/>}></Route>
+                    <Route path='/play-details/:id' element={<PlayDetails/>}></Route>
                     <Route path='/favourites' element={<Favourites/>}></Route>
                     <Route path="*" element={<Empty/>}/>
                 </Routes>
