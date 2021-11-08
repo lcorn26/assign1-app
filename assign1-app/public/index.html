@@ -68,15 +68,48 @@
     //    </article>
     //  );
     // }
-
+    
     const apicall = () => {
-        const array = [];
+      const array = [];
 
 fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
   .then(response => response.json())
-  .then(data => array.push(data) );
-  console.log(array);
+  .then(data => array.push(data), );
+
+
+
+
+
+// if (document.queryselector(.input).contains(array.title))
+//{
+
+//}
+  
+
 }
+
+
+const test = () => {
+  const matchingPlays = array.map(function(arr, index, l){
+    return arr.title;
+  });
+  console.log(array)
+  console.log(matchingPlays)
+}
+
+//const form = () => {
+    //  return (
+    //    <article id="playfilters">
+    //      <input type="text" className="title" />
+    //      <radio> </radio>
+   //       <radio> </radio>
+    //      <input type="text" className="yearb" />
+    //     <input type="text" className="yeara" />
+
+    //<input type="text" className="genre" />
+    //    </article>
+    //  );
+    // }
 
 
 
