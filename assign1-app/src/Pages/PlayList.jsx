@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, Layout, Table, Button, Row, Col, Form, Input, Card, Select } from 'antd';
-import axios from 'axios';
 import {
     HeartTwoTone,
     DeleteTwoTone
@@ -19,7 +18,7 @@ export const playsList = () => {
 
     useEffect(() => {
         if (!playsList) {
-            axios.get('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
+            fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
                 .then(function (response) {
                     localStorage.setItem('playsList', JSON.stringify(response.data));
                     setPlaysList(response.data);

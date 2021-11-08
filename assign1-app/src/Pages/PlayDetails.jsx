@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Menu, Layout, Empty, Button, Row, Col, Form, List, Card, Select, Tabs } from 'antd';
-import axios from 'axios';
 import {
     HeartTwoTone,
     DeleteTwoTone
@@ -15,7 +14,7 @@ export const PlayDetails = () => {
     const [playDescrip, setPlayDescrip] = useState(false);
     const playDetails = JSON.parse(localStorage.getItem("playDetails"));
     useEffect(() => {
-        axios.get('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=' + id)
+        fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=' + id)
             .then(function (response) {
                 setPlayDescrip(response.data);
                 setIsloaded(true);
