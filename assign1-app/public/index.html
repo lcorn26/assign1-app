@@ -40,18 +40,16 @@
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
           .then(response => response.json())
           .then(data => setPlays(data))
-          .then(localStorage.setItem("plays", JSON.stringify(plays)))
           .then(setisLoading(false));
-      }, []);
-else {
-  React.useEffect(() => {
-data = localStorage.getItem("plays")
-data => setPlays(data)
-setisLoading(false)
-  
-}, []);
+      }, [] );
+      else {
+        data = localStorage.getItem("plays")
+        JSON.parse
+      }
+      localStorage.setItem("plays", JSON.stringify(plays));
 
-}
+    
+
 
       if (showHomeView) {
         return (
