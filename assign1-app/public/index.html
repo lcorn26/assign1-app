@@ -25,35 +25,19 @@
 
   <script type="text/babel">
 
-
-    const Apicall = (props) => {
-      const [plays, setPlays] = React.useState([]);
-      //const url = ""
-      //const plays = [];
-      fetch("https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php")
-        .then(response => response.json())
-        .then(data => setPlays(data));
-      //console.log(plays);
-      return (
-        <div>
-          {
-            plays.map(
-              (play) => {
-                <p>{play.id} </p>
-              }
-            )
-          }
-        </div>
-      )
-
-
-    }
-
-
+  // {plays.map( p =>  <p key={p.id}> {p.id} </p> )}
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
+      
+      const [plays, setPlays] = React.useState([]);
+      const [isLoading, setisLoading] = React.useState(true);
 
-
+      React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+          .then(response => response.json())
+          .then(data => setPlays(data))
+          .then(setisLoading(false));
+      }, []);
 
       if (showHomeView) {
         return (
@@ -74,12 +58,14 @@
             <div id="header">
               <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
               <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
+            
             </div>
 
             <div id="favorits">
+                
             </div>
 
-            <PlayDetailsView />
+            <PlayDetailsView play = {plays[0]} />
           </article>
 
         )
@@ -101,7 +87,7 @@
         <div id="PlayDetails" >
           <div id="leftDetails">
             <h1>
-              Title goes here
+              {props.play.title}
             </h1>
             <p> Synopsis Goes here </p>
           </div>
@@ -122,7 +108,7 @@
       )
     }
 
-    ReactDOM.render(<Apicall />, document.getElementById('root'));
+    ReactDOM.render(<Main />, document.getElementById('root'));
 
   </script>
 
