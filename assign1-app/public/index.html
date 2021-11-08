@@ -30,14 +30,15 @@
 
     const Main = () => {
       const [showHomeView, setHomeView] = React.useState(true);
-      
+      const [localstorage] = React.useState(true)
       const [plays, setPlays] = React.useState([]);
       const [isLoading, setisLoading] = React.useState(true);
 
       React.useEffect(() => {
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
           .then(response => response.json())
-          .then(data => { window.localStorage.setItem( setPlays(data)) })
+          .then(data => setPlays(data))
+          .then(window.localStorage.setItem(plays.id, plays))
           .then(setisLoading(false));
       }, []);
 
