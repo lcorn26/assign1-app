@@ -8,23 +8,23 @@ import axios from 'axios';
 export const Home = () => {
     const navigate = useNavigate();
     const [isLaoded, setIsloaded] = useState(false);
-    const [movieList, setMovieList] = useState([]);
+    const [playsList, setPlaysList] = useState([]);
     useEffect(() => {
         axios.get('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
             .then(function (response) {
-                localStorage.setItem('movieList', JSON.stringify(response.data));
-                setMovieList(response.data);
+                localStorage.setItem('playsList', JSON.stringify(response.data));
+                setPlaysList(response.data);
             })
         setIsloaded(true);
     }, [])
     const onFinish = (value) => {
         let FilteredData = [];
         if(value.title){
-            let titleData = movieList.filter(movie => movie.title.includes(value.title));
+            let titleData = playsList.filter(movie => movie.title.includes(value.title));
             console.log(titleData);
             FilteredData.push(...titleData);
         }
-        localStorage.setItem('movieList', JSON.stringify(FilteredData));
+        localStorage.setItem('playsList', JSON.stringify(FilteredData));
         navigate("/movie-list");
     }
     return (
