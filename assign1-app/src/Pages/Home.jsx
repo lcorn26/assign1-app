@@ -2,25 +2,28 @@ import React,  { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 
 export const Home = () => {
     const navigate = useNavigate();
     const [isLaoded, setIsloaded] = useState(false);
     const [playsList, setPlaysList] = useState([]);
-    useEffect(() => {
-        axios.get('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
-            .then(function (response) {
-                localStorage.setItem('playsList', JSON.stringify(response.data));
-                setPlaysList(response.data);
-            })
-        setIsloaded(true);
-    }, [])
+
+    React.useEffect(() => {
+        fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
+          .then(function (response) {
+            localStorage.setItem('playsList', JSON.stringify(response.data));
+            setPlaysList(response.data);
+        })
+          setIsloaded(true);
+      }, []);
+
+
+
     const onFinish = (value) => {
         let FilteredData = [];
         if(value.title){
-            let titleData = playsList.filter(play => play.title.includes(value.title));
+            let titleData = playsList.filter(plays => plays.title.includes(value.title));
             console.log(titleData);
             FilteredData.push(...titleData);
         }
