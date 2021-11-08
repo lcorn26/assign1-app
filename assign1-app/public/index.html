@@ -32,6 +32,7 @@
       const [showHomeView, setHomeView] = React.useState(true);
       const [plays, setPlays] = React.useState([]);
       const [isLoading, setisLoading] = React.useState(true);
+      const [showAboutView, setAboutView] = React.useState(true);
       const listItems = plays.map(( p ) =>  <p key={p.id}> {p.id} </p> )
     
         let something = localStorage.getItem[0]
@@ -70,8 +71,8 @@
           <article >
             <div id="header">
               <img src="logo192.png" alt="Home" onClick={() => { setHomeView(true) }} />
-              <button id="AboutButton" onClick={() => { setHomeView(true) }} >About</button>
-            
+              <button id="AboutButton" onClick={() => { setAboutView(!showAboutView) }} >About</button>
+              {!showAboutView && <AboutView/>}
             </div>
 
 
@@ -95,9 +96,10 @@
     const AboutView = () => {
       return (
         <div id="aboutView">
-          <h1>About Us:</h1>
-          <p>Something about Us</p>
-          <button id="AboutExitBtn" onClick={() => { }} >Exit</button>
+          <h1>Web 3 Assignment 1</h1>
+          <div>Yuan, Meet, Liam</div>
+          <p>Mount Royal University </p>
+          <button id="AboutExitBtn" onClick={() => { setAboutView(!showAboutView)}} >Exit</button>
         </div>
       )
     }
