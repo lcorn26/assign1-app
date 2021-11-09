@@ -8,9 +8,9 @@ import {
 
 const { Header, Content } = Layout;
 const { Option } = Select;
-export const playsList = () => {
+export const PlaysList = () => {
     const navigate = useNavigate();
-    const [isLaoded, setIsloaded] = useState(false);
+    const [isLoaded, setIsloaded] = useState(false);
     const [playsList, setPlaysList] = useState(JSON.parse(localStorage.getItem("playsList")));
     const [allplaysList, setAllplaysList] = useState(JSON.parse(localStorage.getItem("playsList")));
     const [favouriteList, setFavouriteList] = useState([]);
@@ -130,7 +130,7 @@ export const playsList = () => {
                         <Col span={8}>
                             <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
                                 <h1>Favourites</h1>
-                                {isLaoded ? <Table pagination={false} dataSource={favouriteList} columns={favouritesColumns} /> : null}
+                                {isLoaded ? <Table pagination={false} dataSource={favouriteList} columns={favouritesColumns} /> : null}
                             </div>
                         </Col>
                         <Col span={8}>
@@ -191,7 +191,7 @@ export const playsList = () => {
                         </Col>
                         <Col span={8}> <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
                             <h1>List / Matches</h1>
-                            {isLaoded ? <Table pagination={false} dataSource={playsList} columns={columns} /> : null}
+                            {isLoaded ? <Table pagination={false} dataSource={playsList} columns={columns} /> : null}
                         </div></Col>
                     </Row>
                 </Content>

@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Home } from "../Pages/Home";
 import { Empty } from 'antd';
-import { playsList } from "../Pages/playList";
+import { playsList } from "../Pages/PlayList";
 import { Favourites } from "../Pages/Favourites";
 import { PlayDetails } from "../Pages/PlayDetails";
 
