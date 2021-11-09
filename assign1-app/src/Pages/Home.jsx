@@ -58,7 +58,9 @@ export const Home = () => {
                                     </Button></Link>
                                 </Col>
                             </Row>
+                            
                         </Form.Item>
+                        <div id="credit">Image retrieved from NIKON CORPORATION, NIKON D750 Published on December 26, 2017</div>
                     </Form>
                 </Col>
             </Row>
