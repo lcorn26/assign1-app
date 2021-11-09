@@ -9,14 +9,14 @@ export const Home = () => {
     const [isLoaded, setIsloaded] = useState(false);
     const [playsList, setPlaysList] = useState([]);
 
-    React.useEffect(() => {
+   useEffect(() => {
         fetch('https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php')
-          .then(function (response) {
-            localStorage.setItem('playsList', JSON.stringify(response.data));
-            setPlaysList(response.data);
+        .then(response => response.json())
+            .then(data => { localStorage.setItem('playsList', JSON.stringify(data))
+            setPlaysList(data)
         })
-          setIsloaded(true);
-      }, []);
+        setIsloaded(true);
+    }, [])
 
 
 

@@ -15,8 +15,9 @@ export const PlayDetails = () => {
     const playDetails = JSON.parse(localStorage.getItem("playDetails"));
     useEffect(() => {
         fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/play.php?name=' + id)
-            .then(function (response) {
-                setPlayDescrip(response.data);
+        .then(response => response.json())
+            .then(data => {
+                setPlayDescrip(data);
                 setIsloaded(true);
             })
     }, [])

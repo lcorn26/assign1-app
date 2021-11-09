@@ -19,11 +19,11 @@ export const PlaysList = () => {
     useEffect(() => {
         if (!playsList) {
             fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
-                .then(function (response) {
-                    localStorage.setItem('playsList', JSON.stringify(response.data));
-                    setPlaysList(response.data);
-                    setAllplaysList(response.data);
-                })
+            .then(response => response.json())
+            .then(data => { localStorage.setItem('playsList', JSON.stringify(data))
+            setPlaysList(data)
+            setAllplaysList(data) 
+        })
         }
         setIsloaded(true);
     }, [])
