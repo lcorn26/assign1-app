@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
     const navigate = useNavigate();
-    const [isLaoded, setIsloaded] = useState(false);
+    const [isLoaded, setIsloaded] = useState(false);
     const [playsList, setPlaysList] = useState([]);
 
     React.useEffect(() => {
