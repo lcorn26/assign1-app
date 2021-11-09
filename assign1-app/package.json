@@ -1,5 +1,6 @@
 {
   "name": "assign1-app",
+  "homepage": "https://lcorn26.github.io/web3-asg1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
