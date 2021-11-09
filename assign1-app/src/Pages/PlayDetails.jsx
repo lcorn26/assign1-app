@@ -26,7 +26,7 @@ export const PlayDetails = () => {
     const [show, setShow] = useState(true);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(false);
+    const handleShow = () => { setShow(true); }
 
 
     const onTabChange = () => {
@@ -36,17 +36,37 @@ export const PlayDetails = () => {
 
     return (
         <div>
-
+            <div>
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal title</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        I will not close if you click outside me. Don't even try to press
+                        escape key.
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary">Understood</Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
             <Layout>
                 <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
                         <Menu.Item key="1">
-                            <Link to="/"> <img src="../logo192.png" alt="home" width="30px" height="30px"/> </Link>
+                            <Link to="/"><img src="../logo192.png" alt="home" /></Link>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <Link to={handleShow}>About</Link>
                         </Menu.Item>
-
                     </Menu>
                 </Header>
                 <Modal
