@@ -26,7 +26,7 @@ export const PlaysList = () => {
         })
         }
         setIsloaded(true);
-    }, [])
+    }, [playsList])
 
     const markToFavourite = (row) => {
         setFavouriteList(prevArray => [...prevArray, row]);
