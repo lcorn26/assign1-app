@@ -1,6 +1,6 @@
 {
   "name": "assign1-app",
-  "homepage": "https://lcorn26.github.io/web3-asg1",
+  "homepage": "https://lcorn26.github.io/assig1-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,8 +13,7 @@
     "react-modal": "^3.14.3",
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1",
-    "homepage": "https://lcorn26.github.io/web3_asg1"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",
