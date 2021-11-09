@@ -6,6 +6,7 @@ import {
     DeleteTwoTone
 } from '@ant-design/icons';
 import { List } from 'rc-field-form';
+import Modal from 'react-modal';
 const { Header, Content } = Layout;
 const { Option } = Select;
 <link rel="stylesheet" href="index.css"></link>
@@ -18,7 +19,10 @@ export const PlaysList = () => {
     const [form] = Form.useForm();
     const [show, setShow] = useState(true);
 
+    
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(false);
     useEffect(() => {
         if (!playsList) {
             fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
@@ -135,6 +139,27 @@ export const PlaysList = () => {
                         <Menu.Item key="2">About</Menu.Item>
                     </Menu>
                 </Header>
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal title</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Github: https://github.com/lcorn26/web3_asg1.git
+                        Group Members: Liam Cormwall, Meet Suthar, Yuan zhou
+                        Technology used: React, NPM, Modals, css= @ant-design/icons
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary">Understood</Button>
+                    </Modal.Footer>
+                </Modal>
                 <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
                     <Row>
                         <Col span={8}>
