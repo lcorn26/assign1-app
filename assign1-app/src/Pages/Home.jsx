@@ -2,7 +2,7 @@ import React,  { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useNavigate } from "react-router-dom";
-
+<link rel="stylesheet" href="index.css"></link>
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -34,7 +34,7 @@ export const Home = () => {
         <div>
             <Row justify="space-around" align="middle">
                 <Col span={12}>
-                    <h1>Play Browser</h1>
+                    <h1 id="mainHeader">Play Browser</h1>
                     <Form
                         name="normal_login"
                         className="login-form"
