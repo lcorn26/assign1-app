@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/assign1-app/static/css/main.a8932ad3.chunk.css",
+    "main.js": "/assign1-app/static/js/main.3e1ef5db.chunk.js",
+    "main.js.map": "/assign1-app/static/js/main.3e1ef5db.chunk.js.map",
+    "runtime-main.js": "/assign1-app/static/js/runtime-main.263fb6a2.js",
+    "runtime-main.js.map": "/assign1-app/static/js/runtime-main.263fb6a2.js.map",
+    "static/css/2.a95be28f.chunk.css": "/assign1-app/static/css/2.a95be28f.chunk.css",
+    "static/js/2.b64ce7f0.chunk.js": "/assign1-app/static/js/2.b64ce7f0.chunk.js",
+    "static/js/2.b64ce7f0.chunk.js.map": "/assign1-app/static/js/2.b64ce7f0.chunk.js.map",
+    "static/js/3.94de9847.chunk.js": "/assign1-app/static/js/3.94de9847.chunk.js",
+    "static/js/3.94de9847.chunk.js.map": "/assign1-app/static/js/3.94de9847.chunk.js.map",
+    "index.html": "/assign1-app/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/assign1-app/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.a8932ad3.chunk.css.map": "/assign1-app/static/css/main.a8932ad3.chunk.css.map",
+    "static/js/2.b64ce7f0.chunk.js.LICENSE.txt": "/assign1-app/static/js/2.b64ce7f0.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/assign1-app/static/media/stage.e1499cc9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.263fb6a2.js",
+    "static/css/2.a95be28f.chunk.css",
+    "static/js/2.b64ce7f0.chunk.js",
+    "static/css/main.a8932ad3.chunk.css",
+    "static/js/main.3e1ef5db.chunk.js"
+  ]
+}
