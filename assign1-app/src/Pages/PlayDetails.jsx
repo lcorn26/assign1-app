@@ -98,6 +98,9 @@ export const PlayDetails = () => {
                                                 <Select value="1">
                                                     <Option value="1"></Option>
                                                 </Select>
+                                                </Form.Item>
+                                            <Form.Item>
+                                            <input type="text"/>
                                             </Form.Item>
                                         </Form>
                                     </Card>
