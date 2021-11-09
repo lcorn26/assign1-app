@@ -10,7 +10,7 @@ const { Option } = Select;
 const { TabPane } = Tabs;
 export const PlayDetails = () => {
     const { id } = useParams();
-    const [isLaoded, setIsloaded] = useState(false);
+    const [isLoaded, setIsloaded] = useState(false);
     const [playDescrip, setPlayDescrip] = useState(false);
     const playDetails = JSON.parse(localStorage.getItem("playDetails"));
     useEffect(() => {
