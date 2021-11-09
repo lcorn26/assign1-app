@@ -20,7 +20,7 @@ export const PlayDetails = () => {
                 setPlayDescrip(data);
                 setIsloaded(true);
             })
-    }, [])
+    }, [id])
 
     const onTabChange = () => {
 
