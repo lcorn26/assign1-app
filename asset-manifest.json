@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.c04262dc.chunk.css",
-    "main.js": "/static/js/main.9dd11487.chunk.js",
-    "main.js.map": "/static/js/main.9dd11487.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ffb91f04.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ffb91f04.js.map",
-    "static/css/2.a95be28f.chunk.css": "/static/css/2.a95be28f.chunk.css",
-    "static/js/2.808ceafe.chunk.js": "/static/js/2.808ceafe.chunk.js",
-    "static/js/2.808ceafe.chunk.js.map": "/static/js/2.808ceafe.chunk.js.map",
-    "static/js/3.94de9847.chunk.js": "/static/js/3.94de9847.chunk.js",
-    "static/js/3.94de9847.chunk.js.map": "/static/js/3.94de9847.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.a95be28f.chunk.css.map": "/static/css/2.a95be28f.chunk.css.map",
-    "static/css/main.c04262dc.chunk.css.map": "/static/css/main.c04262dc.chunk.css.map",
-    "static/js/2.808ceafe.chunk.js.LICENSE.txt": "/static/js/2.808ceafe.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/stage.e1499cc9.jpg"
+    "main.css": "/web3-asg1/static/css/main.2ba6600e.chunk.css",
+    "main.js": "/web3-asg1/static/js/main.72d62a5a.chunk.js",
+    "main.js.map": "/web3-asg1/static/js/main.72d62a5a.chunk.js.map",
+    "runtime-main.js": "/web3-asg1/static/js/runtime-main.f6c0e70e.js",
+    "runtime-main.js.map": "/web3-asg1/static/js/runtime-main.f6c0e70e.js.map",
+    "static/css/2.a95be28f.chunk.css": "/web3-asg1/static/css/2.a95be28f.chunk.css",
+    "static/js/2.822778c3.chunk.js": "/web3-asg1/static/js/2.822778c3.chunk.js",
+    "static/js/2.822778c3.chunk.js.map": "/web3-asg1/static/js/2.822778c3.chunk.js.map",
+    "static/js/3.94de9847.chunk.js": "/web3-asg1/static/js/3.94de9847.chunk.js",
+    "static/js/3.94de9847.chunk.js.map": "/web3-asg1/static/js/3.94de9847.chunk.js.map",
+    "index.html": "/web3-asg1/index.html",
+    "static/css/2.a95be28f.chunk.css.map": "/web3-asg1/static/css/2.a95be28f.chunk.css.map",
+    "static/css/main.2ba6600e.chunk.css.map": "/web3-asg1/static/css/main.2ba6600e.chunk.css.map",
+    "static/js/2.822778c3.chunk.js.LICENSE.txt": "/web3-asg1/static/js/2.822778c3.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/web3-asg1/static/media/stage.e1499cc9.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ffb91f04.js",
+    "static/js/runtime-main.f6c0e70e.js",
     "static/css/2.a95be28f.chunk.css",
-    "static/js/2.808ceafe.chunk.js",
-    "static/css/main.c04262dc.chunk.css",
-    "static/js/main.9dd11487.chunk.js"
+    "static/js/2.822778c3.chunk.js",
+    "static/css/main.2ba6600e.chunk.css",
+    "static/js/main.72d62a5a.chunk.js"
   ]
 }
