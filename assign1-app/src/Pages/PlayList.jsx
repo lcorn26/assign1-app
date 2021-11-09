@@ -5,9 +5,10 @@ import {
     HeartTwoTone,
     DeleteTwoTone
 } from '@ant-design/icons';
-
+import { List } from 'rc-field-form';
 const { Header, Content } = Layout;
 const { Option } = Select;
+<link rel="stylesheet" href="index.css"></link>
 export const PlaysList = () => {
     const navigate = useNavigate();
     const [isLoaded, setIsloaded] = useState(false);
@@ -15,18 +16,22 @@ export const PlaysList = () => {
     const [allplaysList, setAllplaysList] = useState(JSON.parse(localStorage.getItem("playsList")));
     const [favouriteList, setFavouriteList] = useState([]);
     const [form] = Form.useForm();
+    const [show, setShow] = useState(true);
+
 
     useEffect(() => {
         if (!playsList) {
             fetch('https://randyconnolly.com/funwebdev/3rd/api/shakespeare/list.php')
-            .then(response => response.json())
-            .then(data => { localStorage.setItem('playsList', JSON.stringify(data))
-            setPlaysList(data)
-            setAllplaysList(data) 
-        })
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('playsList', JSON.stringify(data))
+                    setPlaysList(data)
+                    setAllplaysList(data)
+                })
         }
         setIsloaded(true);
     }, [playsList])
+
 
     const markToFavourite = (row) => {
         setFavouriteList(prevArray => [...prevArray, row]);
@@ -39,16 +44,16 @@ export const PlaysList = () => {
     }
     const onViewDetails = (row) => {
         localStorage.setItem("playDetails", JSON.stringify(row));
-        navigate("/play-details/"+row.id);
+        navigate("/play-details/" + row.id);
     }
     const columns = [
         {
-            title: 'Title',
+            title: <a id="title" href="#" onclick={playsList.sort((a, b) => (a.title > b.title) ? 1 : -1)}>Title</a>,
             dataIndex: 'title',
             key: 'title',
         },
         {
-            title: 'Year',
+            title: <a id="year" href="#">Year</a>,
             dataIndex: 'likelyDate',
         },
         {
@@ -76,9 +81,11 @@ export const PlaysList = () => {
             title: '',
             dataIndex: 'address',
             render: (text, row, index) => {
+
                 return <div>
                     <Button type="primary" icon={<DeleteTwoTone />} onClick={() => unmarkToFavourite(row)} />
                 </div>
+
             },
         },
     ];
@@ -86,27 +93,27 @@ export const PlaysList = () => {
     const onFilter = (value) => {
         console.log(value)
         let FilteredData = [];
-        if(value.title){
+        if (value.title) {
             let titleData = allplaysList.filter(play => play.title.includes(value.title));
             console.log(titleData);
             FilteredData.push(titleData);
         }
-        if(value.before && value.after){
+        if (value.before && value.after) {
             let genreData = allplaysList.filter(play => +play.likelyDate < +value.before && +play.likelyDate > +value.after);
             console.log(genreData)
             FilteredData.push(...genreData);
         }
-        if(value.after && !value.before){
+        if (value.after && !value.before) {
             let genreData = allplaysList.filter(play => +play.likelyDate > +value.after);
             console.log(genreData)
             FilteredData.push(...genreData);
         }
-        if(!value.after && value.before){
+        if (!value.after && value.before) {
             let genreData = allplaysList.filter(play => +play.likelyDate < +value.before);
             console.log(genreData)
             FilteredData.push(...genreData);
         }
-        if(value.genre){
+        if (value.genre) {
             let genreData = allplaysList.filter(play => play.genre === value.genre);
             console.log(genreData)
             FilteredData.push(...genreData);
@@ -115,6 +122,8 @@ export const PlaysList = () => {
         console.log(FilteredData)
         setPlaysList(FilteredData)
     }
+
+
     return (
         <div>
             <Layout>
@@ -128,10 +137,11 @@ export const PlaysList = () => {
                 <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
                     <Row>
                         <Col span={8}>
-                            <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
+                        <button class="btn-minimize" onClick={()=>setShow(!show)}></button>
+                            {show?<div id="fav" className="site-layout-background" style={{ padding: 24, minHeight: 380 }} >
                                 <h1>Favourites</h1>
                                 {isLoaded ? <Table pagination={false} dataSource={favouriteList} columns={favouritesColumns} /> : null}
-                            </div>
+                            </div>:null}
                         </Col>
                         <Col span={8}>
                             <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
